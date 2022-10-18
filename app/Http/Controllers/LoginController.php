@@ -2,15 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    public function login(){
+    public function login()
+    {
         return view('login');
     }
 
-    public function signup(Request $request){
-        
+    public function register()
+    {
+        return view('register');
+    }
+
+    public function signup(Request $request)
+    {
+        $teacher = new Teacher();
+
+        $hash = Hash::make($request->password);
+        $teacher->name = $request->name;
+        $teacher->enroll = $request->enroll;
+        $teacher->area = $request->area;
+        $teacher->password = $hash;
+        $teacher->save();
+
+        return redirect('/');
     }
 }
