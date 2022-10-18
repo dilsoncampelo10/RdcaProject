@@ -1,0 +1,111 @@
+body{
+    background-color: #eee;
+}
+
+/*Login*/
+#btn_validate{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/*Aluno e professor*/
+
+header{
+    margin-bottom: 50px;
+}
+
+.card h5{  
+    display: inline;
+    
+}
+.card{
+    margin-left: 20px;
+}
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-outline-success{
+    font-size: 30px;
+    width: 70px;
+}
+.navbar-brand img{
+    height: 70px;
+}
+
+.card-body label{
+    margin-bottom: 10px;
+}
+
+.card-body .btn{
+    margin-top: 20px;
+}
+
+#container{
+    display: flex;
+    
+}
+#container .btn_teacher{
+    height: 70px;
+    margin-left: 10px;
+}
+#create_centerid{
+    background-color: green;
+    border-color: rgb(7, 82, 7);
+    margin: 20px;
+}
+#create_centerid:hover{
+    background-color: rgb(7, 82, 7);
+}
+
+/*MODAL*/
+
+.modal_enroll{
+    background-color: rgba(0, 0, 0, .6);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-dialog{
+  width: 60%;
+}
+
+.display-modal{
+    display: flex;
+}
+.close-modal{
+    display: none;
+}
+
+.radios_format{
+    margin-top: 20px;
+}
+
+/*Footer*/
+
+footer{
+    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    
+}
+footer p, footer p > a{
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    margin: 0;
+}
+
+footer p >a:hover{
+    color: lightgray;
+}
