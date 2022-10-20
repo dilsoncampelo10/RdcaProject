@@ -62,13 +62,13 @@
                     <h5 class="modal-title">Criar nova aula</h5>
                     <button type="button" class="btn-close close"></button>
                 </div>
-                <form action="/alunos" method="POST">
+                <form action="{{route('register.center')}}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <label for="id_discipline" class="form-label">Disciplina:</label>
                         <input class="form-control" type="text" name="discipline" id="id_discipline" placeholder="Digite a disciplina do centro" required>
                         <label for="id_datetime" class="form-label">Dia / Hora:</label>
-                        <input type="datetime-local" name="time_center" id="id_datetime" class="form-control" required>
+                        <input type="datetime-local" name="datetime" id="id_datetime" class="form-control" required>
                         <label for="id_place" class="form-label">Local:</label>
                         <input class="form-control" type="text" name="place" id="id_place" placeholder="Digite onde vai ocorrer o centro" required>
                         <label for="id_diary" class="form-label">Diários:</label>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary close">Sair</button>
+                        <button type="button" class="btn btn-secondary close ">Sair</button>
                         <input type="submit" class="btn btn-success" value="Enviar">
                     </div>
                 </form>

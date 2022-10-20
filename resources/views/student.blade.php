@@ -16,7 +16,7 @@
         <h5 class="card-title">Professor: </h5>
         <span class="card-text">Paulo Orlando</span>
         <h5 class="card-title">Horário: </h5>
-        <span class="card-text">{{$center->time_center}}</span>
+        <span class="card-text">{{$center->datetime}}</span>
         <h5 class="card-title">Local: </h5>
         <span class="card-text">{{$center->place}}</span>
     </div>

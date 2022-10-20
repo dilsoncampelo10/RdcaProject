@@ -73,6 +73,13 @@ header{
     align-items: center;
     justify-content: center;
 }
+.btn{
+    margin-left: 10px;
+}
+.modal-body,.modal-header,.modal-footer{
+    background-color: #eee;
+    padding: 15px;
+}
 
 .modal-dialog{
   width: 60%;

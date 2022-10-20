@@ -25,10 +25,10 @@
                             <a href="/"><img src="img/logo.png" alt="logo" class="text-center"></a>
                         </div>
 
-                        <form action="/professor" method="POST">
+                        <form action="{{route('signin')}}" method="POST">
                             @csrf
-                            <label for="email" class="form-label">Login</label>
-                            <input type="email" name="email" id="email" class="form-control my-3 py-2" placeholder="Digite sua matricula" required autocomplete="off">
+                            <label for="enroll" class="form-label">Login</label>
+                            <input type="text" name="enroll" id="enroll" class="form-control my-3 py-2" placeholder="Digite sua matricula" required autocomplete="off">
                             <label for="password" class="form-label">Senha</label>
                             <input type="password" name="password" id="password" class="form-control my-3 py-2" placeholder="Digite sua senha" required autocomplete="off">
                             <div class="text-center mt-3">
