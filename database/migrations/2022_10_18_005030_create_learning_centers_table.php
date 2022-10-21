@@ -19,7 +19,7 @@ return new class extends Migration
             $table->dateTime('datetime');
             $table->string('place');
             $table->char('format');
-            $table->foreignId("id_teacher")->references("id")->on("teachers");
+            $table->foreignId("id_teacher")->references("id")->on("users");
             $table->timestamps();
         });
     }

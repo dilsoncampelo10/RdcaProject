@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LearningCenter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LearningCenterController extends Controller
 {
@@ -41,7 +42,8 @@ class LearningCenterController extends Controller
         $learningcenter->datetime = $request->datetime;
         $learningcenter->place = $request->place;
         $learningcenter->format = $request->format;
-        $learningcenter->id_teacher = 1;
+        
+        $learningcenter->id_teacher = Auth::user()->id;
 
         $learningcenter->save();
 
