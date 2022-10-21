@@ -32,21 +32,46 @@ class LoginController extends Controller
 
         return redirect('/');
     }
+    // public function authenticate(Request $request)
+    // {
+    //     $enroll = $request->enroll;
+    //     $password = $request->password;
+
+
+    //     $credentials = [
+    //         'enroll' => $enroll,
+    //         'password' => $password,
+    //     ];
+
+    //     if (Auth::guard('teachers')->attempt($credentials)) {
+    //         $request->session()->regenerate();
+
+    //         return redirect()->intended('teacher');
+    //     }
+
+    //     return back()->withErrors([
+    //         'email' => 'The provided credentials do not match our records.',
+    //     ])->onlyInput('email');
+    // }
     public function authenticate(Request $request)
     {
-        $credentials = $request->validate([
-            'enroll' => ['required', 'enroll'],
-            'password' => ['required'],
-        ]);
+        
+        $enroll = $request->enroll;
+        $password = $request->password;
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        $teacher = Teacher::where('enroll',$enroll)->first();
 
-            return redirect()->intended('teacher');
+       
+
+        if($enroll == $teacher->enroll){
+            if(password_verify($password, $teacher->password)){
+                $request->session()->regenerate();
+
+                return redirect()->intended('professor');
+            }
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        return redirect('/');
+        
     }
 }
