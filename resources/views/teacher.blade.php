@@ -47,7 +47,7 @@
 
     @endif
 
-    <div class="container">
+    <div>
         <button type="button" class="btn btn-success create_center">Criar Centro de Aprendizagem</button>
     </div>
 </div>
