@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -21,7 +22,7 @@ class LoginController extends Controller
 
     public function signup(Request $request)
     {
-        $teacher = new Teacher();
+        $teacher = new User();
 
         $hash = Hash::make($request->password);
         $teacher->name = $request->name;
@@ -32,46 +33,46 @@ class LoginController extends Controller
 
         return redirect('/');
     }
-    // public function authenticate(Request $request)
-    // {
-    //     $enroll = $request->enroll;
-    //     $password = $request->password;
-
-
-    //     $credentials = [
-    //         'enroll' => $enroll,
-    //         'password' => $password,
-    //     ];
-
-    //     if (Auth::guard('teachers')->attempt($credentials)) {
-    //         $request->session()->regenerate();
-
-    //         return redirect()->intended('teacher');
-    //     }
-
-    //     return back()->withErrors([
-    //         'email' => 'The provided credentials do not match our records.',
-    //     ])->onlyInput('email');
-    // }
     public function authenticate(Request $request)
     {
-        
         $enroll = $request->enroll;
         $password = $request->password;
 
-        $teacher = Teacher::where('enroll',$enroll)->first();
 
-       
+        $credentials = [
+            'enroll' => $enroll,
+            'password' => $password,
+        ];
 
-        if($enroll == $teacher->enroll){
-            if(password_verify($password, $teacher->password)){
-                $request->session()->regenerate();
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
-                return redirect()->intended('professor');
-            }
+            return redirect()->intended('professor');
         }
 
-        return redirect('/');
-        
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
     }
+    // public function authenticate(Request $request)
+    // {
+
+    //     $enroll = $request->enroll;
+    //     $password = $request->password;
+
+    //     $teacher = Teacher::where('enroll',$enroll)->first();
+
+
+
+    //     if($enroll == $teacher->enroll){
+    //         if(password_verify($password, $teacher->password)){
+    //             $request->session()->regenerate();
+
+    //             return redirect()->intended('professor');
+    //         }
+    //     }
+
+    //     return redirect('/');
+
+    // }
 }
